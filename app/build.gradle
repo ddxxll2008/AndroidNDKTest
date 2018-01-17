@@ -1,0 +1,28 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 26
+    defaultConfig {
+        applicationId "com.phoenix.ndktest"
+        minSdkVersion 19
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        ndk{
+            moduleName "helloJni"//*生成的so文件名，必填
+            abiFilters "armeabi", "armeabi-v7a", "x86" //配置输出的abi体系结构下的so库，
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    compile 'com.android.tools.build:gradle-experimental:0.7.0'//仅仅在我们生成jni方法框架时添加，当我们全部添加完JNI方法框架之后，必须注释或者删除掉，否则run的时候就绝对报错
+}
