@@ -1,1 +1,1 @@
-# AndroidNDKTest
+# AndroidNDKTest参考：[NDK开发 从入门到放弃(一：基本流程入门了解)](http://blog.csdn.net/xiaoyu_93/article/details/52870395)
